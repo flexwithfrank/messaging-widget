@@ -22,7 +22,7 @@ class ColorSelectorWidget {
 
     let link = document.createElement("link");
     link.rel = "stylesheet";
-    link.href = "./index.css";
+    link.href = "./output.css";
     document.head.appendChild(link);
 
     // Inject styles into the head of the document

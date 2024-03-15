@@ -6,10 +6,13 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "build:css": "postcss styles.css -o output.css --config postcss.config.cjs",
+    "watch:css": "nodemon -e css -x 'npm run build:css'"
   },
   "devDependencies": {
     "autoprefixer": "^10.4.18",
+    "nodemon": "^3.1.0",
     "postcss": "^8.4.35",
     "tailwindcss": "^3.4.1",
     "vite": "^5.1.6"
