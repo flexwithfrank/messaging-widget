@@ -1,23 +1,7 @@
-// import "./index.css";
+import "./index.css";
 // Import the styles
 import { styles } from "./colorStyles.js";
 import { initializeColorScript } from "./colorScript.js";
-
-function injectCssLink(href) {
-    // Create a new link element
-    var link = document.createElement('link');
-
-    // Set the rel attribute to 'stylesheet'
-    link.rel = 'stylesheet';
-
-    // Set the href attribute to the provided URL
-    link.href = href;
-
-    // Append the link element to the head of the document
-    document.head.appendChild(link);
-}
-injectCssLink('/index.css');
-
 
 // Initialize the color script
 
