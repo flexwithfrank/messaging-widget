@@ -1,3 +1,4 @@
+import "./index.css";
 import { CLOSE_ICON, MESSAGE_ICON, styles } from "./assets.js";
 
 class MessageWidget {

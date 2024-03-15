@@ -1,4 +1,5 @@
 export const styles = `
+
     .widget__container * {
         box-sizing: border-box;
     }        
@@ -49,16 +50,12 @@ export const styles = `
         border-top-right-radius: 10px;
         text-align: center;
     }
-    .widget__header h3 {
-        font-size: 24px;
-        font-weight: 400;
-        margin-bottom: 8px;
-    }
+    
     form {
-        padding: 2rem 1rem 1.5rem;
+        padding: 1rem;
     }
     form .form__field {
-        margin-bottom: 1.5rem;
+        margin-bottom: 1rem;
         display: flex;
         flex-direction: column;
     }
