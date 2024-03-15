@@ -260,4 +260,5 @@ const colorSelectorHTML = `
 // Initialize the color selector widget
 const colorSelectorWidget = new ColorSelectorWidget(colorSelectorHTML);
 
+
 initializeColorScript();
