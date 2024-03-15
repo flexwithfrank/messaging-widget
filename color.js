@@ -5,11 +5,6 @@ import { initializeColorScript } from "./colorScript.js";
 
 // Initialize the color script
 
-let link = document.createElement('link');
-link.rel = 'stylesheet';
-link.href = './index.css';
-document.head.appendChild(link);
-
 class ColorSelectorWidget {
   constructor(htmlContent) {
     this.htmlContent = htmlContent;
@@ -24,6 +19,11 @@ class ColorSelectorWidget {
 
     // Append the widget to the document body
     document.body.appendChild(widgetContainer);
+
+    let link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./index.css";
+    document.head.appendChild(link);
 
     // Inject styles into the head of the document
     this.injectStyles(styles);
@@ -261,8 +261,6 @@ const colorSelectorHTML = `
 </section>
 
 `;
-
-
 
 // Initialize the color selector widget
 const colorSelectorWidget = new ColorSelectorWidget(colorSelectorHTML);
