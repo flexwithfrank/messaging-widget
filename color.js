@@ -1,9 +1,14 @@
-import "./index.css";
+// import "./index.css";
 // Import the styles
 import { styles } from "./colorStyles.js";
 import { initializeColorScript } from "./colorScript.js";
 
 // Initialize the color script
+
+let link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = './index.css';
+document.head.appendChild(link);
 
 class ColorSelectorWidget {
   constructor(htmlContent) {
