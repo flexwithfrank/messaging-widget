@@ -1,5 +1,36 @@
 export const styles = `
 
+.loader {
+  position: fixed;
+  visibility: visible;
+  opacity: 1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(255, 255, 255, 1);
+  z-index: 9999;
+  display: flex; 
+  justify-content: center;
+  align-items: center;
+  transition: visibility 0.6s, opacity 0.6s linear;
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+.loader.fadeOut {
+  visibility: hidden;
+  opacity: 0;
+  animation: fadeOut 0.6s ease-in-out forwards;
+}
+
 #customer-input {
   animation: modalFadeIn 0.6s ease-in-out forwards;
   display: none;
@@ -11,7 +42,6 @@ export const styles = `
       opacity: 0;
       transform: translateY(30px);
   }
-
   to {
       opacity: 1;
       transform: translateY(0);

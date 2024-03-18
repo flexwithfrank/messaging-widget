@@ -1,7 +1,8 @@
-// import "./index.css";
+import "./index.css";
 // Import the styles
 import { styles } from "./colorStyles.js";
 import { initializeColorScript } from "./colorScript.js";
+import loader from "./loader.js";
 
 // Initialize the color script
 
@@ -17,13 +18,26 @@ class ColorSelectorWidget {
     widgetContainer.classList.add("color-selector-widget");
     widgetContainer.innerHTML = this.htmlContent;
 
+    // Create a div for the loader and add it to the widget
+    const loaderDiv = document.createElement("div");
+    loaderDiv.innerHTML = loader;
+    loaderDiv.classList.add("loader");
+    widgetContainer.appendChild(loaderDiv);
+
+    // Show loader for 3 seconds then hide
+    setTimeout(() => {
+        loaderDiv.classList.add("fadeOut");
+    }, 1000);
+
     // Append the widget to the document body
     document.body.appendChild(widgetContainer);
 
+   /*
     let link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = "./output.css";
     document.head.appendChild(link);
+   */
 
     // Inject styles into the head of the document
     this.injectStyles(styles);
@@ -41,7 +55,8 @@ class ColorSelectorWidget {
 
 // Example HTML content for the color selector widget
 const colorSelectorHTML = `
-<section class="bg-[#EEEEEE] w-full mx-auto px-6 lg:px-24 pt-12 min-h-screen pb-60">
+
+<section class="bg-[#EEEEEE] w-full mx-auto px-6 lg:px-24 pt-12 min-h-screen absolute z-30 top-0 right-0 left-0">
 <!-- paint section -->
 <div class="flex flex-col items-center justify-between mx-auto">
     <div class="pt-6 w-full lg:w-9/12">
