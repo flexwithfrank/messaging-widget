@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 // Import the styles
 import { styles } from "./colorStyles.js";
 import { initializeColorScript } from "./colorScript.js";
