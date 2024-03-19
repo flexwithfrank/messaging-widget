@@ -542,6 +542,15 @@ video {
 .relative {
   position: relative;
 }
+.left-0 {
+  left: 0px;
+}
+.right-0 {
+  right: 0px;
+}
+.top-0 {
+  top: 0px;
+}
 .top-1 {
   top: 0.25rem;
 }
@@ -550,6 +559,9 @@ video {
 }
 .z-0 {
   z-index: 0;
+}
+.z-30 {
+  z-index: 30;
 }
 .col-span-12 {
   grid-column: span 12 / span 12;
@@ -644,6 +656,9 @@ video {
 }
 .items-center {
   align-items: center;
+}
+.justify-center {
+  justify-content: center;
 }
 .justify-between {
   justify-content: space-between;
@@ -788,9 +803,6 @@ video {
 .py-6 {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
-}
-.pb-60 {
-  padding-bottom: 15rem;
 }
 .pt-12 {
   padding-top: 3rem;

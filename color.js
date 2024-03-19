@@ -1,4 +1,4 @@
-import "./index.css";
+// import "./index.css";
 // Import the styles
 import { styles } from "./colorStyles.js";
 import { initializeColorScript } from "./colorScript.js";
@@ -16,6 +16,7 @@ class ColorSelectorWidget {
     // Create a div element for the widget
     const widgetContainer = document.createElement("div");
     widgetContainer.classList.add("color-selector-widget");
+    widgetContainer.classList.add("widget", "flex", "items-center", "justify-center", "w-full", "h-full");
     widgetContainer.innerHTML = this.htmlContent;
 
     // Create a div for the loader and add it to the widget
@@ -32,12 +33,10 @@ class ColorSelectorWidget {
     // Append the widget to the document body
     document.body.appendChild(widgetContainer);
 
-   /*
     let link = document.createElement("link");
     link.rel = "stylesheet";
     link.href = "./output.css";
     document.head.appendChild(link);
-   */
 
     // Inject styles into the head of the document
     this.injectStyles(styles);

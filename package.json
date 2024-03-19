@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "build:css": "postcss styles.css -o output.css --config postcss.config.cjs",
+    "build:css": "postcss index.css -o output.css --config postcss.config.cjs",
     "watch:css": "nodemon -e css -x 'npm run build:css'"
   },
   "devDependencies": {
