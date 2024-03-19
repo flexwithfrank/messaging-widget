@@ -1,4 +1,4 @@
-// import "./index.css";
+import "./index.css";
 // Import the styles
 import { styles } from "./colorStyles.js";
 import { initializeColorScript } from "./colorScript.js";
@@ -33,10 +33,10 @@ class ColorSelectorWidget {
     // Append the widget to the document body
     document.body.appendChild(widgetContainer);
 
-    let link = document.createElement("link");
-    link.rel = "stylesheet";
-    link.href = "./output.css";
-    document.head.appendChild(link);
+    // let link = document.createElement("link");
+    // link.rel = "stylesheet";
+    // link.href = "./output.css";
+    // document.head.appendChild(link);
 
     // Inject styles into the head of the document
     this.injectStyles(styles);
