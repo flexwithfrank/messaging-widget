@@ -15,7 +15,14 @@ class ColorSelectorWidget {
     // Create a div element for the widget
     const widgetContainer = document.createElement("div");
     widgetContainer.classList.add("color-selector-widget");
-    widgetContainer.classList.add("widget", "flex", "items-center", "justify-center", "w-full", "h-full");
+    widgetContainer.classList.add(
+      "widget",
+      "flex",
+      "items-center",
+      "justify-center",
+      "w-full",
+      "h-full"
+    );
     widgetContainer.innerHTML = this.htmlContent;
 
     // Create a div for the loader and add it to the widget
@@ -26,7 +33,7 @@ class ColorSelectorWidget {
 
     // Show loader for 3 seconds then hide
     setTimeout(() => {
-        loaderDiv.classList.add("fadeOut");
+      loaderDiv.classList.add("fadeOut");
     }, 1000);
 
     // Append the widget to the document body
@@ -279,8 +286,8 @@ const loader = `
 
 <div class="h-full flex items-center justify-center">
   <div class="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
-    <div class="flex justify-center">
-      <div class="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-gray-800 rounded-full" role="status" aria-label="loading">
+    <div class="flex justify-center items-center gap-4">
+      <div class="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-gray-200 rounded-full" role="status" aria-label="loading">
         <span class="sr-only">Loading...</span>
       </div>
     </div>
