@@ -2,7 +2,6 @@
 // Import the styles
 import { styles } from "./colorStyles.js";
 import { initializeColorScript } from "./colorScript.js";
-import loader from "./loader.js";
 
 // Initialize the color script
 
@@ -33,10 +32,10 @@ class ColorSelectorWidget {
     // Append the widget to the document body
     document.body.appendChild(widgetContainer);
 
-    // let link = document.createElement("link");
-    // link.rel = "stylesheet";
-    // link.href = "./output.css";
-    // document.head.appendChild(link);
+    let link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = "./output.css";
+    document.head.appendChild(link);
 
     // Inject styles into the head of the document
     this.injectStyles(styles);
@@ -273,6 +272,20 @@ const colorSelectorHTML = `
 </div>
 </form>
 </section>
+
+`;
+
+const loader = `
+
+<div class="h-full flex items-center justify-center">
+  <div class="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
+    <div class="flex justify-center">
+      <div class="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-gray-800 rounded-full" role="status" aria-label="loading">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 `;
 
