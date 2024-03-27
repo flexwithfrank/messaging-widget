@@ -40,61 +40,65 @@ export function initializeColorScript() {
     const db = firebase.firestore();
     
     
-    form.addEventListener("submit", async (e) => {
+    form.addEventListener("submit", (e) => {
       e.preventDefault();
-
+    
       const firstname = document.getElementById("firstname").value;
       const lastname = document.getElementById("lastname").value;
       const email = document.getElementById("email").value;
       const phone = document.getElementById("phone").value;
-      const colorPicker = document.querySelector(
+      var colorPicker = document.querySelector(
         'input[name="extcolor"]:checked'
       ).value;
-
+    
       // Add date of submission
       const date = new Date();
       const dateSubmitted = date.toDateString();
-
-      try {
-        // Add a new document to the 'mainForm' collection
-        const docRef = await db.collection("mainForm").add({
-          firstname,
-          lastname,
-          email,
-          phone,
+    
+      // Add a new document to the 'mainForm' collection
+      db.collection("mainForm")
+        .add({
+          firstname: firstname,
+          lastname: lastname,
+          email: email,
+          phone: phone,
           color: colorPicker,
-          dateSubmitted
+          dateSubmitted: dateSubmitted
+        })
+        .then((docRef) => {
+          console.log("Document written with ID: ", docRef.id);
+    
+          // Send the customer's information to the Zapier webhook
+          fetch('https://hook.us1.make.com/wf91vcpw96usbfnsr6g4wchc79fy4waq', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            body: JSON.stringify({
+              firstname: firstname,
+              lastname: lastname,
+              email: email,
+              phone: phone,
+              color: colorPicker,
+              dateSubmitted: dateSubmitted
+            })
+          })
+        .then(response => response.text())
+        .then(text => text ? JSON.parse(text) : {})
+          .catch((error) => {
+            console.error('Error:', error);
+          });
+        })
+        .catch((error) => {
+          console.error("Error adding document: ", error);
         });
-
-        console.log("Document written with ID: ", docRef.id);
-
-        // Send the customer's information to the Zapier webhook
-        const response = await fetch('https://hook.us1.make.com/f3jkg17dk2jvc8hchryuxvfdmxodbwxm', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: `firstname=${encodeURIComponent(firstname)}&lastname=${encodeURIComponent(lastname)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&color=${encodeURIComponent(colorPicker)}&dateSubmitted=${encodeURIComponent(dateSubmitted)}`
-        });
-
-        const text = await response.text();
-        let data;
-        try {
-          data = JSON.parse(text);
-        } catch {
-          data = text;
-        }
-        console.log(data);
-      } catch (error) {
-        console.error('Error:', error);
-      }
-
+    
       alert.style.display = "block";
-
+    
       setTimeout(() => {
         alert.style.display = "none";
       }, 3000);
-
+    
       form.reset();
     });
   
