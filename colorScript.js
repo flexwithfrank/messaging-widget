@@ -38,8 +38,7 @@ export function initializeColorScript() {
 
     // Create Firestore reference
     const db = firebase.firestore();
-    
-    
+
     form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
@@ -63,19 +62,30 @@ export function initializeColorScript() {
           email,
           phone,
           color: colorPicker,
-          dateSubmitted
+          dateSubmitted,
         });
 
         console.log("Document written with ID: ", docRef.id);
 
         // Send the customer's information to the Zapier webhook
-        const response = await fetch('https://hook.us1.make.com/f3jkg17dk2jvc8hchryuxvfdmxodbwxm', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/x-www-form-urlencoded'
-          },
-          body: `firstname=${encodeURIComponent(firstname)}&lastname=${encodeURIComponent(lastname)}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(phone)}&color=${encodeURIComponent(colorPicker)}&dateSubmitted=${encodeURIComponent(dateSubmitted)}`
-        });
+        const response = await fetch(
+          "https://hook.us1.make.com/f3jkg17dk2jvc8hchryuxvfdmxodbwxm",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/x-www-form-urlencoded",
+            },
+            body: `firstname=${encodeURIComponent(
+              firstname
+            )}&lastname=${encodeURIComponent(
+              lastname
+            )}&email=${encodeURIComponent(email)}&phone=${encodeURIComponent(
+              phone
+            )}&color=${encodeURIComponent(
+              colorPicker
+            )}&dateSubmitted=${encodeURIComponent(dateSubmitted)}`,
+          }
+        );
 
         const text = await response.text();
         let data;
@@ -86,7 +96,7 @@ export function initializeColorScript() {
         }
         console.log(data);
       } catch (error) {
-        console.error('Error:', error);
+        console.error("Error:", error);
       }
 
       alert.style.display = "block";
@@ -97,7 +107,6 @@ export function initializeColorScript() {
 
       form.reset();
     });
-  
 
     // end
   };

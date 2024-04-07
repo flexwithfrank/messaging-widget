@@ -61,7 +61,7 @@ class ColorSelectorWidget {
 // Example HTML content for the color selector widget
 const colorSelectorHTML = `
 
-<section class="bg-[#EEEEEE] w-full mx-auto px-6 lg:px-24 pt-12 min-h-screen absolute z-30 top-0 right-0 left-0">
+<section class="bg-[#f4f0e6] w-full mx-auto px-6 lg:px-24 pt-12 min-h-screen absolute z-30 top-0 right-0 left-0">
 <!-- paint section -->
 <div class="flex flex-col items-center justify-between mx-auto">
     <div class="pt-6 w-full lg:w-9/12">
