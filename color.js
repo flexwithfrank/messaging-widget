@@ -21,14 +21,15 @@ class ColorSelectorWidget {
       "items-center",
       "justify-center",
       "w-full",
-      "h-full"
+      "h-full",
+      "bg-[#f4f0e6]"
     );
     widgetContainer.innerHTML = this.htmlContent;
 
     // Create a div for the loader and add it to the widget
     const loaderDiv = document.createElement("div");
     loaderDiv.innerHTML = loader;
-    loaderDiv.classList.add("loader");
+    loaderDiv.classList.add("loader", "bg-[#f4f0e6]");
     widgetContainer.appendChild(loaderDiv);
 
     // Show loader for 3 seconds then hide
@@ -284,7 +285,7 @@ const colorSelectorHTML = `
 
 const loader = `
 
-<div class="h-full flex items-center justify-center bg-[#f4f0e6]">
+<div class="h-full flex items-center justify-center">
   <div class="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
     <div class="flex justify-center items-center gap-4">
       <div class="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-gray-200 rounded-full" role="status" aria-label="loading">
