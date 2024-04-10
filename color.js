@@ -74,7 +74,7 @@ const colorSelectorHTML = `
         <div class="flex flex-col items-center md:flex-row justify-between gap-4 lg:-mt-8">
             <div class="container">
                 <p id="color-h1-label"
-                    class="mt-1 sm:mt-1 text-3xl sm:text-4xl font-bold text-black fisker-bold transition duration-300 text-center">
+                    class="mt-1 sm:mt-1 text-xl font-bold text-black fisker-bold transition duration-300 text-center">
                     Color
                 </p>
             </div>
@@ -284,7 +284,7 @@ const colorSelectorHTML = `
 
 const loader = `
 
-<div class="h-full flex items-center justify-center">
+<div class="h-full flex items-center justify-center bg-[#f4f0e6]">
   <div class="flex flex-auto flex-col justify-center items-center p-4 md:p-5">
     <div class="flex justify-center items-center gap-4">
       <div class="animate-spin inline-block size-8 border-[3px] border-current border-t-transparent text-gray-200 rounded-full" role="status" aria-label="loading">
